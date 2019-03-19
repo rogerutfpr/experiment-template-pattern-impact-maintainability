@@ -78,6 +78,17 @@ public class ConnectionDAO {
 						"ordem INT NOT NULL," +
 						"arquivo blob NOT NULL)");
 
+			conn.createStatement().executeUpdate(
+					"CREATE TABLE usuarios (" +
+						"idusuario int NOT NULL GENERATED ALWAYS AS IDENTITY CONSTRAINT IDUSUARIO_PK PRIMARY KEY," +
+						"nome varchar(100) NOT NULL," +
+						"login varchar(50) NOT NULL," +
+						"senha varchar(100) NOT NULL," +
+						"email varchar(100) NOT NULL," +
+						"externo int NOT NULL," +
+						"ativo int NOT NULL," +
+						"administrador int NOT NULL)");						
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}

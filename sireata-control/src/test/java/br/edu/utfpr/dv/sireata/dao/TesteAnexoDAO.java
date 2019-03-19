@@ -23,7 +23,9 @@ public class TesteAnexoDAO {
 
         AnexoDAO dao = new AnexoDAO();
 
-        dao.salvar(anexo);
+        int id = dao.salvar(anexo);
+
+        assertEquals(anexo.getDescricao(), dao.buscarPorId(id).getDescricao());
     }
 
     @Test
