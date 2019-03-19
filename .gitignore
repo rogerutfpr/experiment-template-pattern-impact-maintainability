@@ -1,8 +1,8 @@
 /**/target
 /**/.DS_Store
-.vscode
 .classpath
 .project
 .settings
+.vscode
 /**/database
 /**/derby.log
