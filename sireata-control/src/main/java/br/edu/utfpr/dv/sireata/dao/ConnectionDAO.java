@@ -80,11 +80,7 @@ public class ConnectionDAO {
 						"designacao VARCHAR(50) NOT NULL," +
 						"presente int NOT NULL," +
 						"membro int NOT NULL," + 
-						"motivo VARCHAR(255) NOT NULL," + 
-						// "CONSTRAINT fk_ataparticipantes_ata FOREIGN KEY (idata) REFERENCES atas(idata)" +
-						"CONSTRAINT fk_ataparticipantes_usuario FOREIGN KEY (idusuario) usuarios atas(idusuario)" +
-						")");
-
+						"motivo VARCHAR(255) NOT NULL)");
 
 			conn.createStatement().executeUpdate(
 					"CREATE TABLE anexos (" +

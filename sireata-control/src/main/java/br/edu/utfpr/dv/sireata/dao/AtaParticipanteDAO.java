@@ -19,10 +19,14 @@ public class AtaParticipanteDAO {
 		
 		try{
 			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement("SELECT ataparticipantes.*, usuarios.nome AS nomeParticipante FROM ataparticipantes " +
-				"INNER JOIN usuarios ON usuarios.idUsuario=ataparticipantes.idUsuario " +
+			// stmt = conn.prepareStatement("SELECT ataparticipantes.*, usuarios.nome AS nomeParticipante FROM ataparticipantes " +
+			// 	"INNER JOIN usuarios ON usuarios.idUsuario=ataparticipantes.idUsuario " +
+			// 	"WHERE idAtaParticipante = ?");
+
+			stmt = conn.prepareStatement("SELECT ataparticipantes.* FROM ataparticipantes " +
 				"WHERE idAtaParticipante = ?");
-		
+				
+
 			stmt.setInt(1, id);
 			
 			rs = stmt.executeQuery();
@@ -142,7 +146,7 @@ public class AtaParticipanteDAO {
 		participante.setIdAtaParticipante(rs.getInt("idAtaParticipante"));
 		participante.getAta().setIdAta(rs.getInt("idAta"));
 		participante.getParticipante().setIdUsuario(rs.getInt("idUsuario"));
-		participante.getParticipante().setNome(rs.getString("nomeParticipante"));
+		// participante.getParticipante().setNome(rs.getString("nomeParticipante"));
 		participante.setPresente(rs.getInt("presente") == 1);
 		participante.setMotivo(rs.getString("motivo"));
 		participante.setDesignacao(rs.getString("designacao"));
