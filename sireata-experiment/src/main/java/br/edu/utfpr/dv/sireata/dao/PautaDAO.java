@@ -9,7 +9,7 @@ import java.util.List;
 import br.edu.utfpr.dv.sireata.model.Pauta;
 import br.edu.utfpr.dv.sireata.model.TemplateEntity;
 
-public class PautaDAO extends TemplateDAO {
+public class PautaDAO extends TemplateDAO<Pauta> {
 	
 	@Override
 	String getSQLStringBuscar() {

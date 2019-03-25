@@ -9,7 +9,7 @@ import java.util.List;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 import br.edu.utfpr.dv.sireata.model.TemplateEntity;
 
-public class AnexoDAO extends TemplateDAO {
+public class AnexoDAO extends TemplateDAO<Anexo> {
 
 	@Override
 	String getSQLStringBuscar() {

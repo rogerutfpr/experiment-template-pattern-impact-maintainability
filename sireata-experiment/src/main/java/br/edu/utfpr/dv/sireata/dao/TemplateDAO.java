@@ -9,11 +9,11 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.TemplateEntity;
 
-public abstract class TemplateDAO {
+public abstract class TemplateDAO<T> {
 
 	abstract String getSQLStringBuscar();
 
-	public TemplateEntity buscarPorId(int id) throws SQLException{
+	public T buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -42,9 +42,9 @@ public abstract class TemplateDAO {
 	}
 	
 	abstract String getSQLStringListar(int idAta);
-	abstract List<? extends TemplateEntity> popularList (ResultSet rs);
+	abstract List<T> popularList (ResultSet rs);
 
-	public List<? extends TemplateEntity> listarPorAta(int idAta) throws SQLException{
+	public List<T> listarPorAta(int idAta) throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -136,5 +136,5 @@ public abstract class TemplateDAO {
 		}
 	}
 	
-	abstract TemplateEntity carregarObjeto(ResultSet rs) throws SQLException;
+	abstract T carregarObjeto(ResultSet rs) throws SQLException;
 }
