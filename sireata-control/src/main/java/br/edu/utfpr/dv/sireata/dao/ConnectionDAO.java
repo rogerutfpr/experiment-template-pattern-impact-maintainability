@@ -13,7 +13,6 @@ import java.sql.SQLException;
 
 public class ConnectionDAO {
 
-	// private String connectionUrl = "jdbc:derby:database;create=true";
 	private String connectionUrl = "jdbc:derby:memory:database;create=true";
 	private Connection conn = null;
 
