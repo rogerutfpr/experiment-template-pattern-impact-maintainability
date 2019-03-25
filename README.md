@@ -10,3 +10,6 @@ Summary of changes we performed:
 - Updated ConnectionDAO class to use our in-memory database and to create only tables required for the experiment;
 - Created tests for entities and DAOs, including tests for tasks that should be performed in the experiment;
 - Provided a main class with a main method to help students unfamiliar with testing.
+
+## sireata-experiment
+This folder contains the reengineered Maven project that uses the Template DP. 
