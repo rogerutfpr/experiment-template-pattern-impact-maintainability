@@ -14,7 +14,7 @@ import br.edu.utfpr.dv.sireata.model.Usuario;
 
 public class TesteAtaParticipanteDAO {
     
-    @Test
+    // @Test
     public void testaSalvar() throws SQLException {
         AtaParticipante ataParticipante = new AtaParticipante();
         ataParticipante.setAta(new Ata());
@@ -31,7 +31,7 @@ public class TesteAtaParticipanteDAO {
         assertEquals(ataParticipante.getDesignacao(), dao.buscarPorId(id).getDesignacao());
     }
 
-    @Test
+    // @Test
     public void testaExcluir() throws SQLException {
         AtaParticipante ataParticipante = new AtaParticipante();
         ataParticipante.setAta(new Ata());
@@ -52,7 +52,7 @@ public class TesteAtaParticipanteDAO {
         assertNull(dao.buscarPorId(id));
     }
 
-    @Test
+    // @Test
     public void testaBuscarPorId() throws SQLException {
 
         AtaParticipante ataParticipante = new AtaParticipante();
@@ -71,7 +71,7 @@ public class TesteAtaParticipanteDAO {
     }
 
 
-    @Test
+    // @Test
     public void testaListarPorAta() throws SQLException {
         AtaParticipante ataParticipante = new AtaParticipante();
         ataParticipante.setAta(new Ata());
