@@ -72,13 +72,23 @@ public class PautaDAO extends TemplateDAO {
 			stmt.setInt(2, pauta.getOrdem());
 			stmt.setString(3, pauta.getTitulo());
 			stmt.setString(4, pauta.getDescricao());
-			stmt.setInt(5, pauta.getId());
+			stmt.setInt(5, pauta.getIdPauta());
 	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}			
 	}
 	
+	int getId(TemplateEntity entity) {
+		Pauta pauta = (Pauta) entity;
+		return pauta.getIdPauta();
+	}
+
+	void setId(TemplateEntity entity, int id) {
+		Pauta anexo = (Pauta) entity;
+		anexo.setIdPauta(id);
+	}
+
 	@Override
 	String getSQLStringExcluir() {
 		return "DELETE FROM pautas WHERE idPauta=";
@@ -88,7 +98,7 @@ public class PautaDAO extends TemplateDAO {
 	Pauta carregarObjeto(ResultSet rs) throws SQLException{
 		Pauta pauta = new Pauta();
 		
-		pauta.setId(rs.getInt("idPauta"));
+		pauta.setIdPauta(rs.getInt("idPauta"));
 		pauta.getAta().setIdAta(rs.getInt("idAta"));
 		pauta.setOrdem(rs.getInt("ordem"));
 		pauta.setTitulo(rs.getString("titulo"));

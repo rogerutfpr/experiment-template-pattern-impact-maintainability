@@ -64,6 +64,16 @@ public class AnexoDAO extends TemplateDAO {
 		}
 	}
 
+	int getId(TemplateEntity entity) {
+		Anexo anexo = (Anexo) entity;
+		return anexo.getIdAnexo();
+	}
+
+	void setId(TemplateEntity entity, int id) {
+		Anexo anexo = (Anexo) entity;
+		anexo.setIdAnexo(id);
+	}
+
 	@Override
 	void popularRegistroComObjetoOperacaoUpdate(PreparedStatement stmt, TemplateEntity entity) {
 		Anexo anexo = (Anexo) entity;
@@ -73,7 +83,7 @@ public class AnexoDAO extends TemplateDAO {
 			stmt.setInt(2, anexo.getOrdem());
 			stmt.setString(3, anexo.getDescricao());
 			stmt.setBytes(4, anexo.getArquivo());
-			stmt.setInt(5, anexo.getId()); 
+			stmt.setInt(5, anexo.getIdAnexo()); 
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,7 +94,7 @@ public class AnexoDAO extends TemplateDAO {
 	Anexo carregarObjeto(ResultSet rs) throws SQLException{
 		Anexo anexo = new Anexo();
 		
-		anexo.setId(rs.getInt("idAnexo"));
+		anexo.setIdAnexo(rs.getInt("idAnexo"));
 		anexo.getAta().setIdAta(rs.getInt("idAta"));
 		anexo.setDescricao(rs.getString("descricao"));
 		anexo.setOrdem(rs.getInt("ordem"));

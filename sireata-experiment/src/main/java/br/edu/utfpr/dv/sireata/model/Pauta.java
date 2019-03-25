@@ -1,6 +1,6 @@
 package br.edu.utfpr.dv.sireata.model;
 
-public class Pauta {
+public class Pauta implements TemplateEntity {
 	
 	private int idPauta;
 	private Ata ata;

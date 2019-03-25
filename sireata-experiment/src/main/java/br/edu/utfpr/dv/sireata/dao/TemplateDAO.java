@@ -71,9 +71,11 @@ public abstract class TemplateDAO {
 	abstract String getSQLStringUpdate();
 	abstract void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, TemplateEntity entity);
 	abstract void popularRegistroComObjetoOperacaoUpdate (PreparedStatement stmt, TemplateEntity entity);
+	abstract int getId(TemplateEntity entity); 
+	abstract void setId(TemplateEntity entity, int id);
 	
 	public int salvar(TemplateEntity entity) throws SQLException{
-		boolean insert = (entity.getId() == 0);
+		boolean insert = (this.getId(entity) == 0);
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -98,11 +100,13 @@ public abstract class TemplateDAO {
 				rs = stmt.getGeneratedKeys();
 				
 				if(rs.next()){
-					entity.setId(rs.getInt(1));
+					// entity.setId(rs.getInt(1));
+					this.setId(entity, rs.getInt(1));
 				}
 			}
 			
-			return entity.getId();
+			// return entity.getId();
+			return this.getId(entity);
 		}finally{
 			if((rs != null) && !rs.isClosed())
 				rs.close();
