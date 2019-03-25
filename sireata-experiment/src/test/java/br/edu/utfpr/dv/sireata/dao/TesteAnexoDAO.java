@@ -25,7 +25,7 @@ public class TesteAnexoDAO {
 
         int id = dao.salvar(anexo);
 
-        assertEquals(anexo.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(anexo.getDescricao(), ((Anexo)dao.buscarPorId(id)).getDescricao());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class TesteAnexoDAO {
 
         int id = dao.salvar(anexo);
 
-        assertEquals(anexo.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(anexo.getDescricao(), ((Anexo)dao.buscarPorId(id)).getDescricao());
 
         dao.excluir(id);
 
@@ -59,7 +59,7 @@ public class TesteAnexoDAO {
 
         int id = dao.salvar(anexo);
 
-        assertEquals(anexo.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(anexo.getDescricao(), ((Anexo)dao.buscarPorId(id)).getDescricao());
     }
 
 

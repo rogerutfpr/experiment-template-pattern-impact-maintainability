@@ -25,7 +25,7 @@ public class TestePautaDAO {
 
         int id = dao.salvar(pauta);
 
-        assertEquals(pauta.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(pauta.getDescricao(), ((Pauta)dao.buscarPorId(id)).getDescricao());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class TestePautaDAO {
 
         int id = dao.salvar(pauta);
 
-        assertEquals(pauta.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(pauta.getDescricao(), ((Pauta)dao.buscarPorId(id)).getDescricao());
 
         dao.excluir(id);
 
@@ -59,7 +59,7 @@ public class TestePautaDAO {
 
         int id = dao.salvar(pauta);
 
-        assertEquals(pauta.getDescricao(), dao.buscarPorId(id).getDescricao());
+        assertEquals(pauta.getDescricao(), ((Pauta)dao.buscarPorId(id)).getDescricao());
     }
 
 
