@@ -1,6 +1,6 @@
 package br.edu.utfpr.dv.sireata.model;
 
-public class Anexo implements TemplateEntity {
+public class Anexo {
 	
 	private int idAnexo;
 	private Ata ata;
