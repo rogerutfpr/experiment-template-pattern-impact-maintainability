@@ -66,32 +66,7 @@ public class ConnectionDAO {
 						"idata INT NOT NULL," +
 						"descricao VARCHAR(50) NOT NULL," +
 						"ordem INT NOT NULL," +
-						"arquivo blob NOT NULL)");						
-
-			// conn.createStatement().executeUpdate(
-			// 		"CREATE TABLE usuarios (" +
-			// 			"idusuario int NOT NULL GENERATED ALWAYS AS IDENTITY CONSTRAINT IDUSUARIO_PK PRIMARY KEY," +
-			// 			"nome varchar(100) NOT NULL," +
-			// 			"login varchar(50) NOT NULL," +
-			// 			"senha varchar(100) NOT NULL," +
-			// 			"email varchar(100) NOT NULL," +
-			// 			"externo int NOT NULL," +
-			// 			"ativo int NOT NULL," +
-			// 			"administrador int NOT NULL," +
-			// 			")");								
-
-			// conn.createStatement().executeUpdate(
-			// 		"CREATE TABLE ataparticipantes (" +
-			// 			"idataparticipante int NOT NULL GENERATED ALWAYS AS IDENTITY CONSTRAINT IDATAPARTICIPANTE_PK PRIMARY KEY," +
-			// 			"idata int NOT NULL," + 
-			// 			"idusuario int NOT NULL," +
-			// 			"designacao VARCHAR(50) NOT NULL," +
-			// 			"presente int NOT NULL," +
-			// 			"membro int NOT NULL," + 
-			// 			"motivo VARCHAR(255) NOT NULL)");
-
-
-				
+						"arquivo blob NOT NULL)");										
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
