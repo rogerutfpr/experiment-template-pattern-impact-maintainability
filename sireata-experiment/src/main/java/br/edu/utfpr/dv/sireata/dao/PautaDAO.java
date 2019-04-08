@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Pauta;
-import br.edu.utfpr.dv.sireata.model.TemplateEntity;
 
 public class PautaDAO extends TemplateDAO<Pauta> {
 	
@@ -47,15 +46,13 @@ public class PautaDAO extends TemplateDAO<Pauta> {
 	}
 
 	@Override
-	void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, TemplateEntity entity) {
-
-		Pauta pauta = (Pauta) entity;
+	void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, Pauta entity) {
 
 		try {
-			stmt.setInt(1, pauta.getAta().getIdAta());
-			stmt.setInt(2, pauta.getOrdem());
-			stmt.setString(3, pauta.getTitulo());
-			stmt.setString(4, pauta.getDescricao());
+			stmt.setInt(1, entity.getAta().getIdAta());
+			stmt.setInt(2, entity.getOrdem());
+			stmt.setString(3, entity.getTitulo());
+			stmt.setString(4, entity.getDescricao());
 	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,30 +60,26 @@ public class PautaDAO extends TemplateDAO<Pauta> {
 	}
 
 	@Override
-	void popularRegistroComObjetoOperacaoUpdate(PreparedStatement stmt, TemplateEntity entity) {
-
-		Pauta pauta = (Pauta) entity;
+	void popularRegistroComObjetoOperacaoUpdate(PreparedStatement stmt, Pauta entity) {
 
 		try {
-			stmt.setInt(1, pauta.getAta().getIdAta());
-			stmt.setInt(2, pauta.getOrdem());
-			stmt.setString(3, pauta.getTitulo());
-			stmt.setString(4, pauta.getDescricao());
-			stmt.setInt(5, pauta.getIdPauta());
+			stmt.setInt(1, entity.getAta().getIdAta());
+			stmt.setInt(2, entity.getOrdem());
+			stmt.setString(3, entity.getTitulo());
+			stmt.setString(4, entity.getDescricao());
+			stmt.setInt(5, entity.getIdPauta());
 	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}			
 	}
 	
-	int getId(TemplateEntity entity) {
-		Pauta pauta = (Pauta) entity;
-		return pauta.getIdPauta();
+	int getId(Pauta entity) {
+		return entity.getIdPauta();
 	}
 
-	void setId(TemplateEntity entity, int id) {
-		Pauta anexo = (Pauta) entity;
-		anexo.setIdPauta(id);
+	void setId(Pauta entity, int id) {
+		entity.setIdPauta(id);
 	}
 
 	@Override

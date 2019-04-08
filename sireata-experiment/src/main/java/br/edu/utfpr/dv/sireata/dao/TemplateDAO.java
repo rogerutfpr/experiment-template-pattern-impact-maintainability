@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import br.edu.utfpr.dv.sireata.model.TemplateEntity;
-
 public abstract class TemplateDAO<T> {
 
 	abstract String getSQLStringBuscar();
@@ -69,12 +67,12 @@ public abstract class TemplateDAO<T> {
 
 	abstract String getSQLStringInsert();
 	abstract String getSQLStringUpdate();
-	abstract void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, TemplateEntity entity);
-	abstract void popularRegistroComObjetoOperacaoUpdate (PreparedStatement stmt, TemplateEntity entity);
-	abstract int getId(TemplateEntity entity); 
-	abstract void setId(TemplateEntity entity, int id);
+	abstract void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, T entity);
+	abstract void popularRegistroComObjetoOperacaoUpdate (PreparedStatement stmt, T entity);
+	abstract int getId(T entity); 
+	abstract void setId(T entity, int id);
 	
-	public int salvar(TemplateEntity entity) throws SQLException{
+	public int salvar(T entity) throws SQLException{
 		boolean insert = (this.getId(entity) == 0);
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -100,12 +98,10 @@ public abstract class TemplateDAO<T> {
 				rs = stmt.getGeneratedKeys();
 				
 				if(rs.next()){
-					// entity.setId(rs.getInt(1));
 					this.setId(entity, rs.getInt(1));
 				}
 			}
 			
-			// return entity.getId();
 			return this.getId(entity);
 		}finally{
 			if((rs != null) && !rs.isClosed())

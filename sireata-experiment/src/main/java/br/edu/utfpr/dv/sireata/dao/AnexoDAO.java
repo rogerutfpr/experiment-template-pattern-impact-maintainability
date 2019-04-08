@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Anexo;
-import br.edu.utfpr.dv.sireata.model.TemplateEntity;
 
 public class AnexoDAO extends TemplateDAO<Anexo> {
 
@@ -49,34 +48,30 @@ public class AnexoDAO extends TemplateDAO<Anexo> {
 	}
 
 	@Override
-	void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, TemplateEntity entity) {
-
-		Anexo anexo = (Anexo) entity;
+	void popularRegistroComObjetoOperacaoInsert(PreparedStatement stmt, Anexo entity) {
 
 		try {
-			stmt.setInt(1, anexo.getAta().getIdAta());
-			stmt.setInt(2, anexo.getOrdem());
-			stmt.setString(3, anexo.getDescricao());
-			stmt.setBytes(4, anexo.getArquivo());
+			stmt.setInt(1, entity.getAta().getIdAta());
+			stmt.setInt(2, entity.getOrdem());
+			stmt.setString(3, entity.getDescricao());
+			stmt.setBytes(4, entity.getArquivo());
 	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	int getId(TemplateEntity entity) {
-		Anexo anexo = (Anexo) entity;
-		return anexo.getIdAnexo();
+	int getId(Anexo entity) {
+		return entity.getIdAnexo();
 	}
 
-	void setId(TemplateEntity entity, int id) {
-		Anexo anexo = (Anexo) entity;
-		anexo.setIdAnexo(id);
+	void setId(Anexo entity, int id) {
+		entity.setIdAnexo(id);
 	}
 
 	@Override
-	void popularRegistroComObjetoOperacaoUpdate(PreparedStatement stmt, TemplateEntity entity) {
-		Anexo anexo = (Anexo) entity;
+	void popularRegistroComObjetoOperacaoUpdate(PreparedStatement stmt, Anexo entity) {
+		Anexo anexo = entity;
 
 		try {
 			stmt.setInt(1, anexo.getAta().getIdAta());
