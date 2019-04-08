@@ -1,8 +1,8 @@
 package br.edu.utfpr.dv.sireata.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
@@ -75,7 +75,7 @@ public class TesteAnexoDAO {
 
         int id = dao.salvar(anexo);
 
-        assertNotEquals(0, dao.listarPorAta(0).size());
+        assertTrue(dao.listarPorAta(0).size() > 0);
     }
 
     
