@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>edu.utfpr.cp.sa.gui.MainWindow</mainClass>
+                            <mainClass>br.edu.utfpr.dv.sireata.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
