@@ -16,7 +16,7 @@ This folder contains the reengineered Maven project that uses the Template DP. I
 
 Summary of changes we performed:
 - Created a superclass dao.TemplateDAO, which consists of original DAO methods replaced with Generics for enabling type replacement without casting, and  abstract template methods that should be replaced by concrete implementations;
-- Changed original methods to use template methods when convenient;
+- Changed original methods to be final and to use template methods when convenient;
 - Changed dao.AnexoDAO and dao.PautaDAO classes to inherit from dao.TemplateDAO;
 - Implemented abstract template methods in concrete classes dao.AnexoDAO and dao.PautaDAO by using original code from sireata-control project.
 
