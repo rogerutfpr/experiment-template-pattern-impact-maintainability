@@ -11,7 +11,7 @@ public abstract class TemplateDAO<T> {
 
 	abstract String getSQLStringBuscar();
 
-	public T buscarPorId(int id) throws SQLException{
+	public final T buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -42,7 +42,7 @@ public abstract class TemplateDAO<T> {
 	abstract String getSQLStringListar(int idAta);
 	abstract List<T> popularList (ResultSet rs);
 
-	public List<T> listarPorAta(int idAta) throws SQLException{
+	public final List<T> listarPorAta(int idAta) throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -72,7 +72,7 @@ public abstract class TemplateDAO<T> {
 	abstract int getId(T entity); 
 	abstract void setId(T entity, int id);
 	
-	public int salvar(T entity) throws SQLException{
+	public final int salvar(T entity) throws SQLException{
 		boolean insert = (this.getId(entity) == 0);
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -115,7 +115,7 @@ public abstract class TemplateDAO<T> {
 
 	abstract String getSQLStringExcluir();
 	
-	public void excluir(int id) throws SQLException{
+	public final void excluir(int id) throws SQLException{
 		Connection conn = null;
 		Statement stmt = null;
 		
